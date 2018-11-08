@@ -1,5 +1,9 @@
 package battleShip;
 
-public class BattleShip {
+public class BattleShip extends Ship {
 
+	@Override
+	public String getShipType() {
+		return "battleship";
+	}
 }
