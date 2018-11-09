@@ -10,9 +10,11 @@ public class Ocean {
 	public Ocean() {
 		
 		// initialize to all empty sea, zero out game variables
+		ships = new Ship[20][20];
+		EmptySea empty = new EmptySea();
 		for (int i = 0; i < 20; i++) {
 			for (int j = 0; j < 20; j++) {
-				ships[i][j] = new EmptySea();
+				ships[i][j] = empty;
 			}
 		}
 		
