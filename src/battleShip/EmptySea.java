@@ -8,7 +8,7 @@ public class EmptySea extends Ship{
 	
 	@Override
 	public boolean shootAt(int row, int column) {
-		// always return false
+		return false;
 	}
 	
 	@Override

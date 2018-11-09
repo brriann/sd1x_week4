@@ -2,7 +2,7 @@ package battleShip;
 
 public class Ocean {
 
-	private Ship[][] ships = new Ship[20][20];
+	private Ship[][] ships;
 	private int shotsFired;
 	private int hitCount;
 	private int shipsSunk;
@@ -20,11 +20,10 @@ public class Ocean {
 	}
 	
 	public void placeAllShipsRandomly() {
-		
+		// place large before small
 	}
 	
 	public boolean isOccupied(int row, int column) {
-		
 	}
 	
 	boolean shootAt(int row, int column) {
