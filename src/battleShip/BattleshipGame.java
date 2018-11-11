@@ -5,7 +5,10 @@ public class BattleshipGame {
 	private Ocean ocean;
 	
 	public static void main(String[] args) {
-		
+		BattleshipGame game = new BattleshipGame();
+		game.ocean = new Ocean();
+		game.ocean.placeAllShipsRandomly();
+		game.ocean.printCheat();
 	}
 	
 	

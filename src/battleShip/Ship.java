@@ -60,7 +60,7 @@ public abstract class Ship {
 			int above = row - 1;
 			int below = row + 1;
 			int left = column - 1;
-			int right = column + getLength() + 1;
+			int right = column + getLength();
 			
 			
 			if (above >= 0) {
@@ -123,7 +123,7 @@ public abstract class Ship {
 			}
 			// check for ship touches
 			int above = row - 1;
-			int below = row + getLength() + 1;
+			int below = row + getLength();
 			int left = column - 1;
 			int right = column + 1;
 			
