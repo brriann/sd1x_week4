@@ -193,6 +193,14 @@ public abstract class Ship {
 		}
 	}
 	
+	public int arrayIndexFromRowCol(int row, int col) {
+		if (horizontal) {
+			return col - getBowColumn();
+		} else {
+			return row - getBowRow();
+		}
+	}
+	
 	 public boolean shootAt(int row, int column) {
 		 if (isSunk()) return false;
 		 

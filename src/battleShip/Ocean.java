@@ -28,6 +28,8 @@ public class Ocean {
 	
 	private ArrayList<Ship> gameships;
 	
+	private boolean[][] attempts;
+	
 	public Ocean() {
 		
 		// initialize to all empty sea, zero out game variables
@@ -70,6 +72,8 @@ public class Ocean {
 		gameships.add(submarine2);
 		gameships.add(submarine3);
 		gameships.add(submarine4);
+		
+		attempts = new boolean[20][20];
 	}
 	
 	public void placeAllShipsRandomly() {
@@ -94,6 +98,7 @@ public class Ocean {
 	
 	boolean shootAt(int row, int column) {
 		shotsFired += 1;
+		attempts[row][column] = true;
 		Ship ship = ships[row][column];
 		if (ship.getShipType() != "empty" && !ship.isSunk()) {
 			hitCount += 1;
@@ -153,6 +158,44 @@ public class Ocean {
 	}
 	
 	public void print() {
+		System.out.print("  ");
+		for (int i = 0; i < 10; i ++) {
+			System.out.print(" " + i + " ");
+		}
+		for (int i = 10; i < 20; i ++) {
+			System.out.print(i + " ");
+		}
+		System.out.println();
 		
+		for (int i = 0; i < 10; i++) {
+			System.out.print(i + " ");
+			for(int j = 0; j < 20; j++) {
+				printCell(i, j);
+			}
+			System.out.println();
+		}
+		for (int i = 10; i < 20; i++) {
+			System.out.print(i);
+			for(int j = 0; j < 20; j++) {
+				printCell(i, j);
+			}
+			System.out.println();
+		}
+	}
+	
+	public void printCell(int row, int col) {
+		System.out.print(" ");
+		if (!attempts[row][col]) {
+			System.out.print(".");
+		} else {
+			if (ships[row][col].getShipType() == "empty") {
+				System.out.print("-");
+			} else if (ships[row][col].isSunk()) {
+				System.out.print("x");
+			} else {
+				System.out.print("S");
+			}
+		}
+		System.out.print(" ");
 	}
 }

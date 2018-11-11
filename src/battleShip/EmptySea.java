@@ -19,7 +19,7 @@ public class EmptySea extends Ship{
 	@Override
 	public String toString() {
 		// any single-char representation of empty sea
-		return "_";
+		return "-";
 	}
 	
 	@Override
