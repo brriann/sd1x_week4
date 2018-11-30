@@ -43,6 +43,8 @@ public class Ocean {
 		
 		shotsFired = hitCount = shipsSunk = 0;
 		
+		// number of each ship type per HW spec
+		
 		battleship = new BattleShip();
 		battlecruiser = new BattleCruiser();
 		cruiser1 = new Cruiser();
@@ -131,6 +133,8 @@ public class Ocean {
 		return ships;
 	}
 	
+	// printing the ocean with ship positions visible
+	
 	public void printCheat() {
 		System.out.print("  ");
 		for (int i = 0; i < 10; i ++) {
@@ -157,6 +161,9 @@ public class Ocean {
 		}
 	}
 	
+	// printing the ocean as a non-cheating player would see it, 
+	// only hit locations (or unsuccessful/missed shots) displayed
+	
 	public void print() {
 		System.out.print("  ");
 		for (int i = 0; i < 10; i ++) {
@@ -182,6 +189,8 @@ public class Ocean {
 			System.out.println();
 		}
 	}
+	
+	// handling cell formatting for both of the print methods.  empty, vs hit location, vs sunk ship (which is kind of an "enhanced hit location")
 	
 	public void printCell(int row, int col) {
 		System.out.print(" ");

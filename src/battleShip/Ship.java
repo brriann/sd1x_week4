@@ -45,6 +45,12 @@ public abstract class Ship {
 		
 		int gridSize = ocean.getShipArray()[0].length;
 		
+		// HW spec calls for no ships to be touching, including corner to corner.  
+		// So these if statements are checking for ships that are directly above, below, to the side, or corner, to a ship's potential placed location
+		// one massive block for a ship that is horizontal, one for vertical.  (a horizontal ship occupies one row, vs a vertical ship occupies one  column)
+		// there are opportunities for refactoring / condensing of logic here, but it is necessary to check sides/top/bottom of a ship's potential placement location to avoid adjacent placement
+		// "i kind of got lazy and hey, it works" - me, often
+		
 		if (horizontal) {
 			// overflow off grid
 			if (column < 0 || column > gridSize - getLength()) {
@@ -61,7 +67,6 @@ public abstract class Ship {
 			int below = row + 1;
 			int left = column - 1;
 			int right = column + getLength();
-			
 			
 			if (above >= 0) {
 				for (int i = column, j = getLength() + column; i < j; i++) {

@@ -36,6 +36,9 @@ public class BattleshipGame {
 	}
 	
 	public void acceptInput(String playerShots) {
+		
+		// quit game on q input
+		
 		if (playerShots.equals("q")) {
 			System.out.println("*****QUITTER*****");
 			System.out.println("*****QUITTER*****");
@@ -44,6 +47,13 @@ public class BattleshipGame {
 			System.exit(0);
 			return;
 		}
+		
+		// HW spec was to handle shots of format 1,2;10,10;5,7;3,9;4,15
+		// comma-separated column, row coordinates
+		// semicolon-separated coordinate pairs
+		// no trailing semicolon needed on last pair, but either way ....
+		// sysOut.printed instructions on lines 30-35 also explain a bit
+		
 		String[] shotPairs = playerShots.split(";");
 		for (String shot : shotPairs) {
 			String[] rowCol = shot.split(",");
